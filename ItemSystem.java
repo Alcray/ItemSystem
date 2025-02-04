@@ -63,9 +63,6 @@ public class ItemSystem {
         System.out.print("Enter your choice: ");
     }
 
-    /**
-     * Allows the user to manually create a new item with a chosen name and rarity.
-     */
     private static void createNewItem() {
         System.out.print("Enter item name: ");
         String name = scanner.nextLine().trim();
@@ -100,9 +97,6 @@ public class ItemSystem {
         System.out.println("Created item: " + newItem);
     }
 
-    /**
-     * Displays a submenu of upgrade options and processes the user's choice.
-     */
     private static void performUpgrade() {
         System.out.println("\n===== Upgrade Menu =====");
         System.out.println("1. Upgrade Common to Great   (requires 3 of the same Common)");
@@ -150,13 +144,13 @@ public class ItemSystem {
         }
     }
 
-    /**
-     * Generates a random item with weighted rarities:
-     *  - Common:    50%
-     *  - Great:     25%
-     *  - Rare:      15%
-     *  - Epic:      8%
-     *  - Legendary: 2%
+    /*
+     Generates a random item with weighted rarities:
+     - Common:    50%
+     - Great:     25%
+     - Rare:      15%
+     - Epic:      8%
+     - Legendary: 2%
      */
     private static void generateRandomItem() {
         System.out.print("Enter the base name for the random item (e.g. 'Sword'): ");
@@ -179,9 +173,6 @@ public class ItemSystem {
         System.out.println("Generated random item: " + randomItem);
     }
 
-    /**
-     * Saves the current inventory to a JSON file.
-     */
     private static void saveInventoryToJson() {
         System.out.print("Enter the file name to save (e.g. inventory.json): ");
         String filename = scanner.nextLine().trim();
@@ -198,9 +189,6 @@ public class ItemSystem {
         }
     }
 
-    /**
-     * Loads the inventory from a JSON file.
-     */
     private static void loadInventoryFromJson() {
         System.out.print("Enter the file name to load (e.g. inventory.json): ");
         String filename = scanner.nextLine().trim();
@@ -215,7 +203,6 @@ public class ItemSystem {
                 System.out.println("Error: No valid items found in JSON.");
                 return;
             }
-            // Overwrite the current inventory
             inventory.setItems(new ArrayList<>(Arrays.asList(loadedItems)));
             System.out.println("Inventory loaded from " + filename);
         } catch (IOException e) {
